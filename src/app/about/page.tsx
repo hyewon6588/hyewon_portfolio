@@ -1,3 +1,220 @@
+// "use client";
+
+// import Image from "next/image";
+// import { useState, useEffect } from "react";
+// import { motion, AnimatePresence } from "framer-motion";
+// import type { HTMLMotionProps } from "framer-motion";
+
+// export default function AboutMeDexPage() {
+//   const [drawerOpen, setDrawerOpen] = useState(false);
+//   const [hovered, setHovered] = useState(false);
+//   const [showButton, setShowButton] = useState(false);
+
+//   useEffect(() => {
+//     const timeout = setTimeout(() => {
+//       setShowButton(true);
+//     }, 1000);
+
+//     return () => clearTimeout(timeout);
+//   }, []);
+
+//   return (
+//     <div className="relative min-h-screen overflow-hidden">
+//       {/* Toggle Button - morphing layout with label */}
+//       {showButton && (
+//         <motion.button
+//           {...({
+//             initial: false,
+//             animate: { width: hovered ? 150 : 50 },
+//             transition: {
+//               type: "spring",
+//               stiffness: 300,
+//               damping: 20,
+//             },
+//             className:
+//               "fixed right-6 top-6 z-50 flex items-center gap-2 bg-[#fff7e0] text-[#3f2e00] border border-[#e0c98d] rounded-full shadow-md hover:bg-[#f7ecd2] hover:scale-105 transition-all px-3 py-2 overflow-hidden whitespace-nowrap",
+//             onMouseEnter: () => setHovered(true),
+//             onMouseLeave: () => setHovered(false),
+//             onClick: () => setDrawerOpen(true),
+//           } as HTMLMotionProps<"button">)}
+//         >
+//           <div className="justify-center">
+//             {hovered ? (
+//               <span className="text-lg">📖</span>
+//             ) : (
+//               <span className="text-lg">📘</span>
+//             )}
+//             {hovered && (
+//               <span className="text-sm font-medium"> Open DexNav</span>
+//             )}
+//           </div>
+//         </motion.button>
+//       )}
+
+//       {/* Drawer Navigation */}
+//       <AnimatePresence>
+//         {drawerOpen && (
+//           <motion.aside
+//             {...({
+//               initial: { x: 300, opacity: 0 },
+//               animate: { x: 0, opacity: 1 },
+//               exit: { x: 300, opacity: 0 },
+//               transition: { type: "spring", stiffness: 300, damping: 30 },
+//               className:
+//                 "fixed right-0 top-0 h-full w-64 bg-[#fff7e0] border-l-[3px] border-[#e0c98d] shadow-xl px-6 py-8 z-50 flex flex-col gap-6 text-[16px] text-[#4b3b00] font-semibold items-start",
+//             } as HTMLMotionProps<"aside">)}
+//           >
+//             <button
+//               onClick={() => setDrawerOpen(false)}
+//               className="self-end text-[14px] text-gray-600 hover:text-black"
+//             >
+//               ❌ Close
+//             </button>
+//             <a href="/about" className="text-[#5b3ed2] underline">
+//               📖 Dex Entry
+//             </a>
+//             <a href="/projects">🛠️ Experiments</a>
+//             <a href="/contact">📩 Dispatch Signal</a>
+//           </motion.aside>
+//         )}
+//       </AnimatePresence>
+
+//       <motion.div
+//         {...({
+//           initial: { x: 100, opacity: 0 },
+//           animate: { x: 0, opacity: 1 },
+//           exit: { x: -100, opacity: 0 },
+//           transition: { duration: 0.8 },
+//           className:
+//             "min-h-screen flex items-center justify-center bg-gradient-to-br from-[#fdfaf3] to-[#f5f2e7] p-6 transition-opacity duration-700",
+//           style: { perspective: 1000 },
+//         } as HTMLMotionProps<"div">)}
+//       >
+//         <section className="bg-white rounded-[24px] shadow-2xl border-[2px] border-[#e7d9b0] w-full max-w-7xl p-10 relative overflow-hidden">
+//           <div className="absolute top-4 left-4">
+//             <span className="bg-[#ded4ff] text-xs px-2 py-1 rounded-full font-bold tracking-wider shadow-sm">
+//               ID#002 · Developer Type
+//             </span>
+//           </div>
+
+//           <div className="flex flex-col md:flex-row gap-10">
+//             {/* Profile Section */}
+//             <div className="flex flex-col items-center justify-center md:w-1/3">
+//               <div className="border-[4px] border-[#bbaaff] rounded-full p-1 shadow-md bg-[#f7f5ff]">
+//                 <Image
+//                   src="/Assets/profile2.png"
+//                   alt="Profile"
+//                   width={150}
+//                   height={150}
+//                   className="rounded-full"
+//                 />
+//               </div>
+//               <h2 className="mt-4 text-xl font-bold text-[#5b3ed2] tracking-wide">
+//                 Entry #001
+//               </h2>
+//               <p className="text-lg font-semibold text-black">Hyewon</p>
+//               <p className="text-sm text-gray-600 font-medium px-3 py-[2px] rounded-md bg-[#f3f3f3] mt-1">
+//                 Full-Stack Developer
+//               </p>
+//               <div className="mt-4 text-[13px] text-gray-700 flex flex-col items-start gap-1 w-full max-w-[200px]">
+//                 <div className="bg-[#ffe0ef] px-2 py-1 rounded text-xs w-full">
+//                   🧠 <span className="font-medium">Type:</span> Developer
+//                 </div>
+//                 <div className="bg-[#e0f7fa] px-2 py-1 rounded text-xs w-full">
+//                   🌍 <span className="font-medium">Region:</span> Korea → Canada
+//                 </div>
+//                 <div className="bg-[#ede7f6] px-2 py-1 rounded text-xs w-full">
+//                   ⏱ <span className="font-medium">Last Updated:</span> Apr{" "}
+//                   <span className="tracking-wide">2025</span>
+//                 </div>
+//               </div>
+//             </div>
+
+//             {/* Info Section */}
+//             <div className="md:w-2/3 flex flex-col gap-6 text-[15px] leading-relaxed font-sans">
+//               <div>
+//                 <h3 className="text-base font-semibold text-[#5b3ed2] mb-1">
+//                   📄 Description
+//                 </h3>
+//                 <p className="text-gray-700">
+//                   Hyewon is a Full-Stack Developer currently pursuing a Software
+//                   Engineering Technology Advanced Diploma at Centennial College,
+//                   with a bachelor's degree in Computer Science Engineering. She
+//                   has hands-on experience with projects involving Micro
+//                   Frontends, REST APIs, and AI integrations. Hyewon has worked
+//                   as a Software Developer and a Full-Stack Developer, with a
+//                   passion for accessible design and clean architecture.
+//                 </p>
+//               </div>
+
+//               <div>
+//                 <h4 className="font-semibold text-[#5b3ed2] mb-1">
+//                   📚 Education
+//                 </h4>
+//                 <ul className="list-disc list-inside text-gray-700">
+//                   <li>
+//                     Centennial College (2023–Present) – Software Engineering
+//                     Technology (GPA 4.2/4.5)
+//                   </li>
+//                   <li>
+//                     Inha Technical College (Graduated 2021) – BS. Computer
+//                     Science Engineering
+//                   </li>
+//                 </ul>
+//               </div>
+
+//               <div>
+//                 <h4 className="font-semibold text-[#5b3ed2] mb-1">
+//                   🧳 Work Experience
+//                 </h4>
+//                 <ul className="list-disc list-inside text-gray-700">
+//                   <li>Full-Stack Developer, Centennial College (2024–2025)</li>
+//                   <li>Software Developer (Co-op), Faubert Lab (2019)</li>
+//                 </ul>
+//               </div>
+
+//               <div>
+//                 <h4 className="font-semibold text-[#5b3ed2] mb-1">🧰 Skills</h4>
+//                 <div className="text-gray-700 flex flex-col gap-1">
+//                   <div>
+//                     <span className="font-medium">Frontend:</span> React,
+//                     Next.js, TypeScript
+//                   </div>
+//                   <div>
+//                     <span className="font-medium">Backend:</span> Python, Java,
+//                     C#, FastAPI, Spring Boot, REST APIs
+//                   </div>
+//                   <div>
+//                     <span className="font-medium">Database & Tools:</span>{" "}
+//                     MongoDB, Azure, Agile/Scrum
+//                   </div>
+//                 </div>
+//               </div>
+
+//               <div className="flex gap-4 mt-3">
+//                 <a
+//                   href="/Assets/HyewonHam_Resume.pdf"
+//                   target="_blank"
+//                   className="px-4 py-2 border rounded-md text-sm hover:bg-gray-100 shadow-sm"
+//                 >
+//                   📎 View Resume
+//                 </a>
+//                 <a
+//                   href="https://www.linkedin.com/in/hyewon-ham/"
+//                   target="_blank"
+//                   className="px-4 py-2 border rounded-md text-sm hover:bg-gray-100 shadow-sm"
+//                 >
+//                   🔗 LinkedIn
+//                 </a>
+//               </div>
+//             </div>
+//           </div>
+//         </section>
+//       </motion.div>
+//     </div>
+//   );
+// }
+
 "use client";
 
 import Image from "next/image";
@@ -14,36 +231,27 @@ export default function AboutMeDexPage() {
     const timeout = setTimeout(() => {
       setShowButton(true);
     }, 1000);
-
     return () => clearTimeout(timeout);
   }, []);
 
   return (
-    <div className="relative min-h-screen overflow-hidden">
-      {/* Toggle Button - morphing layout with label */}
+    <div className="relative min-h-screen overflow-hidden bg-gradient-to-br from-[#fdfaf3] to-[#f5f2e7] dark:from-[#0f0f0f] dark:to-[#0f0f0f] transition-colors duration-700">
+      {/* Toggle Button */}
       {showButton && (
         <motion.button
           {...({
             initial: false,
             animate: { width: hovered ? 150 : 50 },
-            transition: {
-              type: "spring",
-              stiffness: 300,
-              damping: 20,
-            },
+            transition: { type: "spring", stiffness: 300, damping: 20 },
             className:
-              "fixed right-6 top-6 z-50 flex items-center gap-2 bg-[#fff7e0] text-[#3f2e00] border border-[#e0c98d] rounded-full shadow-md hover:bg-[#f7ecd2] hover:scale-105 transition-all px-3 py-2 overflow-hidden whitespace-nowrap",
+              "fixed right-6 top-6 z-50 flex items-center gap-2 bg-[#fff7e0] dark:bg-[#1f1a00] text-[#3f2e00] dark:text-[#f0e6c0] border border-[#e0c98d] dark:border-[#867543] rounded-full shadow-md hover:bg-[#f7ecd2] dark:hover:bg-[#2d2400] hover:scale-105 transition-all px-3 py-2 overflow-hidden whitespace-nowrap",
             onMouseEnter: () => setHovered(true),
             onMouseLeave: () => setHovered(false),
             onClick: () => setDrawerOpen(true),
           } as HTMLMotionProps<"button">)}
         >
           <div className="justify-center">
-            {hovered ? (
-              <span className="text-lg">📖</span>
-            ) : (
-              <span className="text-lg">📘</span>
-            )}
+            <span className="text-lg">{hovered ? "📖" : "📘"}</span>
             {hovered && (
               <span className="text-sm font-medium"> Open DexNav</span>
             )}
@@ -51,7 +259,7 @@ export default function AboutMeDexPage() {
         </motion.button>
       )}
 
-      {/* Drawer Navigation */}
+      {/* Drawer Nav */}
       <AnimatePresence>
         {drawerOpen && (
           <motion.aside
@@ -61,12 +269,12 @@ export default function AboutMeDexPage() {
               exit: { x: 300, opacity: 0 },
               transition: { type: "spring", stiffness: 300, damping: 30 },
               className:
-                "fixed right-0 top-0 h-full w-64 bg-[#fff7e0] border-l-[3px] border-[#e0c98d] shadow-xl px-6 py-8 z-50 flex flex-col gap-6 text-[16px] text-[#4b3b00] font-semibold items-start",
+                "fixed right-0 top-0 h-full w-64 bg-[#fff7e0] dark:bg-[#1f1a00] border-l-[3px] border-[#e0c98d] dark:border-[#867543] shadow-xl px-6 py-8 z-50 flex flex-col gap-6 text-[16px] text-[#4b3b00] dark:text-[#f0e6c0] font-semibold items-start",
             } as HTMLMotionProps<"aside">)}
           >
             <button
               onClick={() => setDrawerOpen(false)}
-              className="self-end text-[14px] text-gray-600 hover:text-black"
+              className="self-end text-[14px] text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white"
             >
               ❌ Close
             </button>
@@ -79,6 +287,7 @@ export default function AboutMeDexPage() {
         )}
       </AnimatePresence>
 
+      {/* Content */}
       <motion.div
         {...({
           initial: { x: 100, opacity: 0 },
@@ -86,21 +295,21 @@ export default function AboutMeDexPage() {
           exit: { x: -100, opacity: 0 },
           transition: { duration: 0.8 },
           className:
-            "min-h-screen flex items-center justify-center bg-gradient-to-br from-[#fdfaf3] to-[#f5f2e7] p-6 transition-opacity duration-700",
+            "min-h-screen flex items-center justify-center p-6 transition-opacity duration-700",
           style: { perspective: 1000 },
         } as HTMLMotionProps<"div">)}
       >
-        <section className="bg-white rounded-[24px] shadow-2xl border-[2px] border-[#e7d9b0] w-full max-w-7xl p-10 relative overflow-hidden">
+        <section className="bg-white dark:bg-[#1a1a1a] rounded-[24px] shadow-2xl border-[2px] border-[#e7d9b0] dark:border-[#333333] w-full max-w-7xl p-10 relative overflow-hidden">
           <div className="absolute top-4 left-4">
-            <span className="bg-[#ded4ff] text-xs px-2 py-1 rounded-full font-bold tracking-wider shadow-sm">
+            <span className="bg-[#ded4ff] dark:bg-[#5b3ed2] dark:text-white text-xs px-2 py-1 rounded-full font-bold tracking-wider shadow-sm">
               ID#002 · Developer Type
             </span>
           </div>
 
           <div className="flex flex-col md:flex-row gap-10">
-            {/* Profile Section */}
+            {/* Profile */}
             <div className="flex flex-col items-center justify-center md:w-1/3">
-              <div className="border-[4px] border-[#bbaaff] rounded-full p-1 shadow-md bg-[#f7f5ff]">
+              <div className="border-[4px] border-[#bbaaff] dark:border-[#766cf6] rounded-full p-1 shadow-md bg-[#f7f5ff] dark:bg-[#2a244d]">
                 <Image
                   src="/Assets/profile2.png"
                   alt="Profile"
@@ -109,49 +318,50 @@ export default function AboutMeDexPage() {
                   className="rounded-full"
                 />
               </div>
-              <h2 className="mt-4 text-xl font-bold text-[#5b3ed2] tracking-wide">
+              <h2 className="mt-4 text-xl font-bold text-[#5b3ed2] dark:text-[#a89fff] tracking-wide">
                 Entry #001
               </h2>
-              <p className="text-lg font-semibold text-black">Hyewon</p>
-              <p className="text-sm text-gray-600 font-medium px-3 py-[2px] rounded-md bg-[#f3f3f3] mt-1">
+              <p className="text-lg font-semibold text-black dark:text-white">
+                Hyewon
+              </p>
+              <p className="text-sm text-gray-600 dark:text-gray-300 font-medium px-3 py-[2px] rounded-md bg-[#f3f3f3] dark:bg-[#2e2e2e] mt-1">
                 Full-Stack Developer
               </p>
-              <div className="mt-4 text-[13px] text-gray-700 flex flex-col items-start gap-1 w-full max-w-[200px]">
-                <div className="bg-[#ffe0ef] px-2 py-1 rounded text-xs w-full">
+
+              <div className="mt-4 text-[13px] text-gray-700 dark:text-gray-300 flex flex-col items-start gap-1 w-full max-w-[200px]">
+                <div className="bg-[#ffe0ef] dark:bg-[#5b2b41] px-2 py-1 rounded text-xs w-full">
                   🧠 <span className="font-medium">Type:</span> Developer
                 </div>
-                <div className="bg-[#e0f7fa] px-2 py-1 rounded text-xs w-full">
+                <div className="bg-[#e0f7fa] dark:bg-[#244e54] px-2 py-1 rounded text-xs w-full">
                   🌍 <span className="font-medium">Region:</span> Korea → Canada
                 </div>
-                <div className="bg-[#ede7f6] px-2 py-1 rounded text-xs w-full">
+                <div className="bg-[#ede7f6] dark:bg-[#38305f] px-2 py-1 rounded text-xs w-full">
                   ⏱ <span className="font-medium">Last Updated:</span> Apr{" "}
                   <span className="tracking-wide">2025</span>
                 </div>
               </div>
             </div>
 
-            {/* Info Section */}
-            <div className="md:w-2/3 flex flex-col gap-6 text-[15px] leading-relaxed font-sans">
+            {/* Info */}
+            <div className="md:w-2/3 flex flex-col gap-6 text-[15px] leading-relaxed font-sans text-gray-700 dark:text-gray-300">
               <div>
-                <h3 className="text-base font-semibold text-[#5b3ed2] mb-1">
+                <h3 className="text-base font-semibold text-[#5b3ed2] dark:text-[#a89fff] mb-1">
                   📄 Description
                 </h3>
-                <p className="text-gray-700">
+                <p>
                   Hyewon is a Full-Stack Developer currently pursuing a Software
                   Engineering Technology Advanced Diploma at Centennial College,
                   with a bachelor's degree in Computer Science Engineering. She
-                  has hands-on experience with projects involving Micro
-                  Frontends, REST APIs, and AI integrations. Hyewon has worked
-                  as a Software Developer and a Full-Stack Developer, with a
-                  passion for accessible design and clean architecture.
+                  built Microservices, REST APIs, and AI integrations with a
+                  passion for clean, accessible design.
                 </p>
               </div>
 
               <div>
-                <h4 className="font-semibold text-[#5b3ed2] mb-1">
+                <h4 className="font-semibold text-[#5b3ed2] dark:text-[#a89fff] mb-1">
                   📚 Education
                 </h4>
-                <ul className="list-disc list-inside text-gray-700">
+                <ul className="list-disc list-inside">
                   <li>
                     Centennial College (2023–Present) – Software Engineering
                     Technology (GPA 4.2/4.5)
@@ -164,18 +374,20 @@ export default function AboutMeDexPage() {
               </div>
 
               <div>
-                <h4 className="font-semibold text-[#5b3ed2] mb-1">
+                <h4 className="font-semibold text-[#5b3ed2] dark:text-[#a89fff] mb-1">
                   🧳 Work Experience
                 </h4>
-                <ul className="list-disc list-inside text-gray-700">
+                <ul className="list-disc list-inside">
                   <li>Full-Stack Developer, Centennial College (2024–2025)</li>
                   <li>Software Developer (Co-op), Faubert Lab (2019)</li>
                 </ul>
               </div>
 
               <div>
-                <h4 className="font-semibold text-[#5b3ed2] mb-1">🧰 Skills</h4>
-                <div className="text-gray-700 flex flex-col gap-1">
+                <h4 className="font-semibold text-[#5b3ed2] dark:text-[#a89fff] mb-1">
+                  🧰 Skills
+                </h4>
+                <div className="flex flex-col gap-1">
                   <div>
                     <span className="font-medium">Frontend:</span> React,
                     Next.js, TypeScript
@@ -195,14 +407,14 @@ export default function AboutMeDexPage() {
                 <a
                   href="/Assets/HyewonHam_Resume.pdf"
                   target="_blank"
-                  className="px-4 py-2 border rounded-md text-sm hover:bg-gray-100 shadow-sm"
+                  className="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md text-sm hover:bg-gray-100 dark:hover:bg-[#333] shadow-sm transition"
                 >
                   📎 View Resume
                 </a>
                 <a
                   href="https://www.linkedin.com/in/hyewon-ham/"
                   target="_blank"
-                  className="px-4 py-2 border rounded-md text-sm hover:bg-gray-100 shadow-sm"
+                  className="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md text-sm hover:bg-gray-100 dark:hover:bg-[#333] shadow-sm transition"
                 >
                   🔗 LinkedIn
                 </a>
