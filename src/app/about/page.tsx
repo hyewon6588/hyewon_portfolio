@@ -4,10 +4,9 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import type { HTMLMotionProps } from "framer-motion";
+import Navbar from "@/components/Navbar";
 
 export default function AboutMeDexPage() {
-  const [drawerOpen, setDrawerOpen] = useState(false);
-  const [hovered, setHovered] = useState(false);
   const [showButton, setShowButton] = useState(false);
 
   useEffect(() => {
@@ -19,57 +18,7 @@ export default function AboutMeDexPage() {
 
   return (
     <div className="relative min-h-screen overflow-hidden bg-gradient-to-br from-[#fdfaf3] to-[#f5f2e7] dark:from-[#0f0f0f] dark:to-[#0f0f0f] transition-colors duration-700">
-      {/* Toggle Button */}
-      {showButton && (
-        <motion.button
-          {...({
-            initial: false,
-            animate: { width: hovered ? 150 : 50 },
-            transition: { type: "spring", stiffness: 300, damping: 20 },
-            className:
-              "fixed right-6 top-6 z-50 flex items-center gap-2 bg-[#fff7e0] dark:bg-[#1f1a00] text-[#3f2e00] dark:text-[#f0e6c0] border border-[#e0c98d] dark:border-[#867543] rounded-full shadow-md hover:bg-[#f7ecd2] dark:hover:bg-[#2d2400] hover:scale-105 transition-all px-3 py-2 overflow-hidden whitespace-nowrap",
-            onMouseEnter: () => setHovered(true),
-            onMouseLeave: () => setHovered(false),
-            onClick: () => setDrawerOpen(true),
-          } as HTMLMotionProps<"button">)}
-        >
-          <div className="justify-center">
-            <span className="text-lg">{hovered ? "📖" : "📘"}</span>
-            {hovered && (
-              <span className="text-sm font-medium"> Open DexNav</span>
-            )}
-          </div>
-        </motion.button>
-      )}
-
-      {/* Drawer Nav */}
-      <AnimatePresence>
-        {drawerOpen && (
-          <motion.aside
-            {...({
-              initial: { x: 300, opacity: 0 },
-              animate: { x: 0, opacity: 1 },
-              exit: { x: 300, opacity: 0 },
-              transition: { type: "spring", stiffness: 300, damping: 30 },
-              className:
-                "fixed right-0 top-0 h-full w-64 bg-[#fff7e0] dark:bg-[#1f1a00] border-l-[3px] border-[#e0c98d] dark:border-[#867543] shadow-xl px-6 py-8 z-50 flex flex-col gap-6 text-[16px] text-[#4b3b00] dark:text-[#f0e6c0] font-semibold items-start",
-            } as HTMLMotionProps<"aside">)}
-          >
-            <button
-              onClick={() => setDrawerOpen(false)}
-              className="self-end text-[14px] text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white"
-            >
-              ❌ Close
-            </button>
-            <a href="/about" className="text-[#5b3ed2] underline">
-              📖 Dex Entry
-            </a>
-            <a href="/projects">🛠️ Experiments</a>
-            <a href="/contact">📩 Dispatch Signal</a>
-          </motion.aside>
-        )}
-      </AnimatePresence>
-
+      <Navbar />
       {/* Content */}
       <motion.div
         {...({

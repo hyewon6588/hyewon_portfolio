@@ -3,6 +3,7 @@ import Image from "next/image";
 import { useRef, useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import classNames from "classnames";
+import Navbar from "@/components/Navbar";
 
 const projects = [
   {
@@ -117,6 +118,7 @@ export default function ProjectsPage() {
 
   return (
     <div className="min-h-screen bg-[#f9f6ee] text-[#1c1c1c] px-4 sm:px-10 py-16">
+      <Navbar />
       <h1 className="text-4xl font-bold font-playfair text-center mb-12 text-[#3f2e00]">
         My Projects
       </h1>
