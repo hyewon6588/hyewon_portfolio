@@ -34,7 +34,7 @@ export default function AboutMeDexPage() {
         <section className="bg-white dark:bg-[#1a1a1a] rounded-[24px] shadow-2xl border-[2px] border-[#e7d9b0] dark:border-[#333333] w-full max-w-7xl p-10 relative overflow-hidden">
           <div className="absolute top-4 left-4">
             <span className="bg-[#ded4ff] dark:bg-[#5b3ed2] dark:text-white text-xs px-2 py-1 rounded-full font-bold tracking-wider shadow-sm">
-              ID#002 · Developer Type
+              ID#001 · Developer Type
             </span>
           </div>
 
@@ -81,11 +81,11 @@ export default function AboutMeDexPage() {
                   📄 Description
                 </h3>
                 <p>
-                  Hyewon is a Full-Stack Developer currently pursuing a Software
-                  Engineering Technology Advanced Diploma at Centennial College,
-                  with a bachelor's degree in Computer Science Engineering. She
-                  built Microservices, REST APIs, and AI integrations with a
-                  passion for clean, accessible design.
+                  Hyewon is a Full-Stack Developer recent graduate from
+                  Centennial College obtained a Software Engineering Technology
+                  Advanced Diploma, with a bachelor's degree in Computer Science
+                  Engineering. She built Microservices, REST APIs, and AI
+                  integrations with a passion for clean, accessible design.
                 </p>
               </div>
 
@@ -95,7 +95,7 @@ export default function AboutMeDexPage() {
                 </h4>
                 <ul className="list-disc list-inside">
                   <li>
-                    Centennial College (2023–Present) – Software Engineering
+                    Centennial College (2023 – 2025) – Software Engineering
                     Technology (GPA 4.2/4.5)
                   </li>
                   <li>

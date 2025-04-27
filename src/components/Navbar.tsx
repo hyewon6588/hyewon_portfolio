@@ -5,6 +5,9 @@ import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import type { HTMLMotionProps } from "framer-motion";
+import { Github, Mail } from "lucide-react";
+import LinkedInIcon from "@/components/LinkedInIcon";
+import GithubIcon from "@/components/GithubIcon";
 
 export default function Navbar() {
   const [drawerOpen, setDrawerOpen] = useState(false);
@@ -68,18 +71,42 @@ export default function Navbar() {
             >
               ❌ Close
             </button>
-            {/* <a href="/about" className="text-[#5b3ed2] underline"> */}
-            <a href="/about" className={getLinkClasses("/about")}>
-              📖 Dex Entry
-            </a>
-            {/* <a href="/projects"> */}
-            <a href="/projects" className={getLinkClasses("/projects")}>
-              🛠️ Experiments
-            </a>
-            {/* <a href="/contact"> */}
-            <a href="/contact" className={getLinkClasses("/contact")}>
-              📩 Dispatch Signal
-            </a>
+            <div className="flex flex-col justify-between w-full h-full">
+              <div className="flex flex-col gap-6 text-[16px] text-[#4b3b00] dark:text-[#f0e6c0] font-semibold items-start">
+                {/* <a href="/about" className="text-[#5b3ed2] underline"> */}
+                <a href="/about" className={getLinkClasses("/about")}>
+                  📖 Dex Entry
+                </a>
+                {/* <a href="/projects"> */}
+                <a href="/projects" className={getLinkClasses("/projects")}>
+                  🛠️ Experiments
+                </a>
+                {/* <a href="/contact"> */}
+                <a href="/contact" className={getLinkClasses("/contact")}>
+                  📩 Dispatch Signal
+                </a>
+              </div>
+              <hr className="w-full border-t border-[#e0c98d] dark:border-[#867543] my-4" />
+            </div>
+            <div className="flex w-full justify-center items-center gap-6 mt-4 pb-2">
+              <a
+                href="https://github.com/hyewon6588"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <GithubIcon size={24} />
+              </a>
+              <a href="mailto:hyewon6588@gmail.com">
+                <Mail size={24} />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/hyewon-ham/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <LinkedInIcon size={24} />
+              </a>
+            </div>
           </motion.aside>
         )}
       </AnimatePresence>

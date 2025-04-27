@@ -33,7 +33,7 @@ const projects = [
     ],
     stack: ["Flask", "React", "MongoDB", "GraphQL", "Microservices"],
     image: "/Assets/projects/PatientMonitoring.png",
-    demo: "https://hyewonmonster.vercel.app",
+    demo: "https://patient-monitoring-app.netlify.app/",
   },
   {
     title: "ApplyMate",
@@ -61,7 +61,7 @@ const projects = [
     ],
     stack: ["HTML", "CSS", "JavaScript"],
     image: "/Assets/projects/slideshow.png",
-    demo: "https://hyewoninteractive.vercel.app",
+    demo: "http://studentweb.cencol.ca/hhan29/comp125/Assignment2/Assignment2.html",
   },
   {
     title: "Monster Hunter",
@@ -75,7 +75,7 @@ const projects = [
     ],
     stack: ["HTML", "JavaScript", "CSS"],
     image: "/Assets/projects/monster.png",
-    demo: "https://hyewonmonster.vercel.app",
+    demo: "http://studentweb.cencol.ca/hhan29/comp125/Assignment3_v08/Assignment3_v08/index.html",
   },
   {
     title: "Ham Pizza",
@@ -89,7 +89,7 @@ const projects = [
     ],
     stack: ["C#", "C# .NET"],
     image: "/Assets/projects/pizza.png",
-    demo: "https://hyewonmonster.vercel.app",
+    demo: "/Assets/projects/Ham_Pizza.mp4",
   },
 ];
 
