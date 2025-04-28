@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import type { HTMLMotionProps } from "framer-motion";
-import { Github, Mail } from "lucide-react";
+import { Mail } from "lucide-react";
 import LinkedInIcon from "@/components/LinkedInIcon";
 import GithubIcon from "@/components/GithubIcon";
 

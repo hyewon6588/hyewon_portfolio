@@ -140,6 +140,7 @@ export default function ProjectsPage() {
               const isFlipped = flipped[index];
               return (
                 <div
+                  key={index}
                   className="min-w-[470px] max-w-[470px] flex-shrink-0 cursor-pointer"
                   onClick={() => toggleFlip(index)}
                 >

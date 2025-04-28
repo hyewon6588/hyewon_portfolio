@@ -2,20 +2,11 @@
 
 import Image from "next/image";
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import type { HTMLMotionProps } from "framer-motion";
 import Navbar from "@/components/Navbar";
 
 export default function AboutMeDexPage() {
-  const [showButton, setShowButton] = useState(false);
-
-  useEffect(() => {
-    const timeout = setTimeout(() => {
-      setShowButton(true);
-    }, 1000);
-    return () => clearTimeout(timeout);
-  }, []);
-
   return (
     <div className="relative min-h-screen overflow-hidden bg-gradient-to-br from-[#fdfaf3] to-[#f5f2e7] dark:from-[#0f0f0f] dark:to-[#0f0f0f] transition-colors duration-700">
       <Navbar />
@@ -83,9 +74,9 @@ export default function AboutMeDexPage() {
                 <p>
                   Hyewon is a Full-Stack Developer recent graduate from
                   Centennial College obtained a Software Engineering Technology
-                  Advanced Diploma, with a bachelor's degree in Computer Science
-                  Engineering. She built Microservices, REST APIs, and AI
-                  integrations with a passion for clean, accessible design.
+                  Advanced Diploma, with a bachelor&apos;s degree in Computer
+                  Science Engineering. She built Microservices, REST APIs, and
+                  AI integrations with a passion for clean, accessible design.
                 </p>
               </div>
 

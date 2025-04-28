@@ -25,7 +25,7 @@ export default function Home() {
     });
 
     const maxParticles = window.innerWidth < 768 ? 40 : 100;
-    let particles: { x: number; y: number; r: number; d: number }[] = [];
+    const particles: { x: number; y: number; r: number; d: number }[] = [];
     for (let i = 0; i < maxParticles; i++) {
       particles.push({
         x: Math.random() * w,
