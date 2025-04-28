@@ -68,7 +68,7 @@ export default function ContactPage() {
             </h1>
           </div>
           <p className="text-gray-600 text-sm mb-6">
-            Send a message to the developer from your region.
+            Let's get in touch. Drop me a line!
           </p>
 
           <form onSubmit={handleSubmit} className="flex flex-col gap-4">
