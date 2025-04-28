@@ -43,7 +43,7 @@ export default function AboutMeDexPage() {
             <div className="flex flex-col items-center justify-center md:w-1/3">
               <div className="border-[4px] border-[#bbaaff] dark:border-[#766cf6] rounded-full p-1 shadow-md bg-[#f7f5ff] dark:bg-[#2a244d]">
                 <Image
-                  src="/Assets/profile2.png"
+                  src="/Assets/profile.png"
                   alt="Profile"
                   width={150}
                   height={150}
