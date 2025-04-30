@@ -117,20 +117,20 @@ export default function ProjectsPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#f9f6ee] text-[#1c1c1c] px-4 sm:px-10 py-16">
+    <div className="min-h-screen bg-[#f9f6ee] text-[#1c1c1c] px-4 sm:px-10 py-16 dark:bg-[#0f0f0f] dark:text-white">
       <Navbar />
-      <h1 className="text-4xl font-bold font-playfair text-center mb-12 text-[#3f2e00]">
+      <h1 className="text-4xl font-bold font-playfair text-center mb-12 text-[#3f2e00] dark:text-[#f0e9cc]">
         My Projects
       </h1>
 
       <section className="px-20">
-        <h2 className="text-2xl font-bold mb-6 text-[#5e4600]">
+        <h2 className="text-2xl font-bold mb-6 text-[#5e4600] dark:text-[#d7cba0]">
           Personal Projects
         </h2>
         <div className="relative">
           <button
             onClick={() => scroll("left")}
-            className="absolute left-[-50px] top-1/2 transform -translate-y-1/2 z-10 p-2 bg-[#fff7e0] border border-[#d8c392] text-[#3e2e00] rounded-full shadow-md hover:scale-105 transition"
+            className="absolute left-[-50px] top-1/2 transform -translate-y-1/2 z-10 p-2 bg-[#fff7e0] dark:bg-[#2b2b2b] border border-[#d8c392] dark:border-[#4a4a4a] text-[#3e2e00] dark:text-[#f0e9cc] rounded-full shadow-md hover:scale-105 transition"
           >
             <ChevronLeft size={20} />
           </button>
@@ -157,11 +157,11 @@ export default function ProjectsPage() {
                       )}
                     >
                       {/* Front */}
-                      <div className="absolute w-full h-full p-4 bg-white border-[1.5px] border-[#e7d9b0] rounded-2xl shadow-md [backface-visibility:hidden]">
-                        <h4 className="text-md font-bold leading-tight text-[#4b3b00]">
+                      <div className="absolute w-full h-full p-4 bg-white dark:bg-[#1a1a1a] border-[1.5px] border-[#e7d9b0] dark:border-[#333333] rounded-2xl shadow-md [backface-visibility:hidden]">
+                        <h4 className="text-md font-bold leading-tight text-[#4b3b00] dark:text-[#f5dd88]">
                           {project.title}
                         </h4>
-                        <p className="text-sm text-gray-600 mb-2 font-medium">
+                        <p className="text-sm mb-2 font-medium text-gray-600 dark:text-gray-300">
                           {project.context}
                         </p>
                         {project.image && (
@@ -182,7 +182,7 @@ export default function ProjectsPage() {
                           {project.stack.map((tech, j) => (
                             <span
                               key={j}
-                              className="text-xs px-2 py-1 bg-[#fdf5d0] text-[#3e2e00] rounded-full border border-[#e7d9b0]"
+                              className="text-xs px-2 py-1 bg-[#fdf5d0] dark:bg-[#2f2f2f] text-[#3e2e00] dark:text-[#f0e9cc] rounded-full border border-[#e7d9b0] dark:border-[#4a4a4a]"
                             >
                               {tech}
                             </span>
@@ -192,7 +192,7 @@ export default function ProjectsPage() {
                           <a
                             href={project.demo}
                             target="_blank"
-                            className="mt-4 inline-block px-4 py-2 text-sm border rounded hover:bg-black hover:text-white transition"
+                            className="mt-4 inline-block px-4 py-2 text-sm border rounded text-black dark:text-white hover:bg-black  dark:hover:bg-white hover:text-white dark:hover:text-black transition"
                           >
                             Demo
                           </a>
@@ -200,9 +200,11 @@ export default function ProjectsPage() {
                       </div>
 
                       {/* Back */}
-                      <div className="absolute w-full h-full p-4 bg-white border-[1.5px] border-[#e7d9b0] rounded-2xl shadow-md [transform:rotateY(180deg)] [backface-visibility:hidden] overflow-y-auto">
-                        <h4 className="font-semibold text-sm mb-2">Roles</h4>
-                        <ul className="list-disc list-inside text-sm space-y-1 text-gray-700">
+                      <div className="absolute w-full h-full p-4 bg-white dark:bg-[#1a1a1a] border-[1.5px] border-[#e7d9b0] dark:border-[#333333] rounded-2xl shadow-md [transform:rotateY(180deg)] [backface-visibility:hidden] overflow-y-auto">
+                        <h4 className="font-semibold text-sm mb-2 text-black dark:text-white">
+                          Roles
+                        </h4>
+                        <ul className="list-disc list-inside text-sm space-y-1 text-gray-700 dark:text-gray-300">
                           {project.role.map((r, i) => (
                             <li key={i}>{r}</li>
                           ))}
@@ -217,7 +219,7 @@ export default function ProjectsPage() {
 
           <button
             onClick={() => scroll("right")}
-            className="absolute right-[-50px] top-1/2 transform -translate-y-1/2 z-10 p-2 bg-[#fff7e0] border border-[#d8c392] text-[#3e2e00] rounded-full shadow-md hover:scale-105 transition"
+            className="absolute right-[-50px] top-1/2 transform -translate-y-1/2 z-10 p-2 bg-[#fff7e0] dark:bg-[#2b2b2b] border border-[#d8c392] dark:border-[#4a4a4a] text-[#3e2e00] dark:text-[#f0e9cc] rounded-full shadow-md hover:scale-105 transition"
           >
             <ChevronRight size={20} />
           </button>
