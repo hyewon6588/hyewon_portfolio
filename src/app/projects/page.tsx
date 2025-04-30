@@ -2,6 +2,7 @@
 import Image from "next/image";
 import { useRef, useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { motion, HTMLMotionProps } from "framer-motion";
 import classNames from "classnames";
 import Navbar from "@/components/Navbar";
 
@@ -117,7 +118,15 @@ export default function ProjectsPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#f9f6ee] text-[#1c1c1c] px-4 sm:px-10 py-16 dark:bg-[#0f0f0f] dark:text-white">
+    <motion.div
+      {...({
+        initial: { x: 100, opacity: 0 },
+        animate: { x: 0, opacity: 1 },
+        transition: { duration: 0.8, ease: "easeOut" },
+        className:
+          "min-h-screen bg-[#f9f6ee] text-[#1c1c1c] px-4 sm:px-10 py-16 dark:bg-[#0f0f0f] dark:text-white",
+      } as HTMLMotionProps<"div">)}
+    >
       <Navbar />
       <h1 className="text-4xl font-bold font-playfair text-center mb-12 text-[#3f2e00] dark:text-[#f0e9cc]">
         My Projects
@@ -225,6 +234,6 @@ export default function ProjectsPage() {
           </button>
         </div>
       </section>
-    </div>
+    </motion.div>
   );
 }
