@@ -51,6 +51,20 @@ const projects = [
     demo: "https://applymate-eight.vercel.app/",
   },
   {
+    title: "WellDoneToday",
+    context: "Personal Project",
+    description:
+      "WellDoneToday helps users build a positive habit by submitting three things they did well each day. After writing their reflections, users receive an AI-generated message crafted to feel like a warm, supportive friend.",
+    role: [
+      "Developed the full-stack web app using Next.js (TypeScript) and FastAPI, with secure JWT-based authentication",
+      "Integrated GPT-4o to generate personalized, kind messages after user submissions",
+      "Designed a warm, inbox-style UX with real-time updates and date-wise entry navigation using MongoDB and async triggers",
+    ],
+    stack: ["Next.js", "FastAPI", "MongoDB", "TypeScript", "Tailwind CSS"],
+    image: "/Assets/projects/WellDoneToday.png",
+    demo: "https://well-done-today.vercel.app/",
+  },
+  {
     title: "Interactive Slideshow",
     context: "Academic Project",
     description:
