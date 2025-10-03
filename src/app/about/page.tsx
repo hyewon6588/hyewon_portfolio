@@ -85,11 +85,11 @@ export default function AboutMeDexPage() {
                 </h4>
                 <ul className="list-disc list-inside">
                   <li>
-                    Centennial College (2023 – 2025) – Software Engineering
+                    Centennial College (2023 - 2025) - Software Engineering
                     Technology (GPA 4.2/4.5)
                   </li>
                   <li>
-                    Inha Technical College (Graduated 2021) – BS. Computer
+                    Inha Technical College (Graduated 2021) - BS. Computer
                     Science Engineering
                   </li>
                 </ul>
@@ -100,7 +100,8 @@ export default function AboutMeDexPage() {
                   🧳 Work Experience
                 </h4>
                 <ul className="list-disc list-inside">
-                  <li>Full-Stack Developer, Centennial College (2024–2025)</li>
+                  <li>Full-Stack Developer, Parki interiors (2025 - Present)</li>
+                  <li>Full-Stack Developer, Centennial College (2024 - 2025)</li>
                   <li>Software Developer (Co-op), Faubert Lab (2019)</li>
                 </ul>
               </div>
